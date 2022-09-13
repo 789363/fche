@@ -1,7 +1,7 @@
 FROM alpine:3.16 AS reqmat_dec
 COPY ./reqmat /reqmat
 WORKDIR /reqmat
-RUN apk update && apk install p7zip
+RUN apk update && apk add p7zip
 RUN 7z x reqmat.7z.001 -p$REQMAT_PASSWORD  
 RUN rm reqmat.7z.*
 
