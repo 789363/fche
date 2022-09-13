@@ -9,7 +9,7 @@ RUN rm reqmat.7z.*
 FROM dorowu/ubuntu-desktop-lxde-vnc:focal
 ENV RUNTIME_ENV container
 COPY --from=reqmat_dec /reqmat /opt/reqmat
-RUN DEBIAN_FRONTEND=noninteractive apt-get update &&
-        apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4EB27DB2A3B88B8B &&
-        apt-get install -yq python2 python3 r-cran-rlang
+RUN DEBIAN_FRONTEND=noninteractive apt-get update \
+        && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4EB27DB2A3B88B8B \
+        && apt-get install -yq python2 python3 r-cran-rlang
 CMD ["/bin/sh"]
